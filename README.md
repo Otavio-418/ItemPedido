@@ -28,8 +28,7 @@ final class ItemPedido {
         return $this->quantidade;
     }
 
-    // Calcula o valor total do item
-    public function getSubtotal(): float {
-        return $this->produto->getPreco() * $this->quantidade;
+        public function getSubtotal(): float {
+        return $this->produto->getPreco() $this->quantidade;
     }
 }
