@@ -1,34 +1,19 @@
-# ItemPedido
-<?php
-declare(strict_types=1);
+public class Produto {
+    // Variável final: uma vez definida no construtor, não muda.
+    private final String nome;
 
-final class ItemPedido {
-
-    private Produto $produto;
-    private int $quantidade;
-
-    public function __construct(Produto $produto, int $quantidade) {
-        $this->produto = $produto;
-        $this->quantidade = $quantidade;
+    public Produto(String nome) {
+        this.nome = nome;
     }
 
-    public function setProduto(Produto $produto): void {
-        $this->produto = $produto;
+    // Método final: impede que subclasses alterem a lógica de cálculo
+    public final double calcularPrecoVenda(double markup, double precoCompra) {
+        // Seguindo a fórmula solicitada: (markup * preco * compra)
+        // Nota: Geralmente markup é um multiplicador sobre o custo.
+        return markup * precoCompra;
     }
 
-    public function getProduto(): Produto {
-        return $this->produto;
-    }
-
-    public function setQuantidade(int $quantidade): void {
-        $this->quantidade = $quantidade;
-    }
-
-    public function getQuantidade(): int {
-        return $this->quantidade;
-    }
-
-        public function getSubtotal(): float {
-        return $this->produto->getPreco() $this->quantidade;
+    public String getNome() {
+        return nome;
     }
 }
