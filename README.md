@@ -1,19 +1,15 @@
-public class Produto {
-    // Variável final: uma vez definida no construtor, não muda.
-    private final String nome;
+<?php
 
-    public Produto(String nome) {
-        this.nome = nome;
+class Produto {
+    // No PHP 8.1+, usamos readonly para simular uma variável final (imutável)
+    public readonly string $nome;
+
+    public function __construct(string $nome) {
+        $this->nome = $nome;
     }
 
-    // Método final: impede que subclasses alterem a lógica de cálculo
-    public final double calcularPrecoVenda(double markup, double precoCompra) {
-        // Seguindo a fórmula solicitada: (markup * preco * compra)
-        // Nota: Geralmente markup é um multiplicador sobre o custo.
-        return markup * precoCompra;
-    }
-
-    public String getNome() {
-        return nome;
+    // Método final: subclasses não podem sobrescrever esta lógica
+    public final function calcularPrecoVenda(float $markup, float $precoCompra): float {
+        return $markup * $precoCompra;
     }
 }
